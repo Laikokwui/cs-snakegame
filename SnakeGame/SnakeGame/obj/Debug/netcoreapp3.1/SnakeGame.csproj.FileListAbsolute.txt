@@ -48,3 +48,15 @@ C:/Users/Marlene/Desktop/DPT1/Sem 1 2020/Games for tutorial/SnakeGame/SnakeGame/
 /Users/laikokwui/dp1_Projects/SnakeGame/SnakeGame/obj/Debug/netcoreapp3.1/SnakeGame.dll
 /Users/laikokwui/dp1_Projects/SnakeGame/SnakeGame/obj/Debug/netcoreapp3.1/SnakeGame.pdb
 /Users/laikokwui/dp1_Projects/SnakeGame/SnakeGame/obj/Debug/netcoreapp3.1/SnakeGame.genruntimeconfig.cache
+/Users/laikokwui/dp1_Projects/snakegame-/SnakeGame/SnakeGame/bin/Debug/netcoreapp3.1/SnakeGame.deps.json
+/Users/laikokwui/dp1_Projects/snakegame-/SnakeGame/SnakeGame/bin/Debug/netcoreapp3.1/SnakeGame.runtimeconfig.json
+/Users/laikokwui/dp1_Projects/snakegame-/SnakeGame/SnakeGame/bin/Debug/netcoreapp3.1/SnakeGame.runtimeconfig.dev.json
+/Users/laikokwui/dp1_Projects/snakegame-/SnakeGame/SnakeGame/bin/Debug/netcoreapp3.1/SnakeGame.dll
+/Users/laikokwui/dp1_Projects/snakegame-/SnakeGame/SnakeGame/bin/Debug/netcoreapp3.1/SnakeGame.pdb
+/Users/laikokwui/dp1_Projects/snakegame-/SnakeGame/SnakeGame/obj/Debug/netcoreapp3.1/SnakeGame.csprojAssemblyReference.cache
+/Users/laikokwui/dp1_Projects/snakegame-/SnakeGame/SnakeGame/obj/Debug/netcoreapp3.1/SnakeGame.AssemblyInfoInputs.cache
+/Users/laikokwui/dp1_Projects/snakegame-/SnakeGame/SnakeGame/obj/Debug/netcoreapp3.1/SnakeGame.AssemblyInfo.cs
+/Users/laikokwui/dp1_Projects/snakegame-/SnakeGame/SnakeGame/obj/Debug/netcoreapp3.1/SnakeGame.csproj.CoreCompileInputs.cache
+/Users/laikokwui/dp1_Projects/snakegame-/SnakeGame/SnakeGame/obj/Debug/netcoreapp3.1/SnakeGame.dll
+/Users/laikokwui/dp1_Projects/snakegame-/SnakeGame/SnakeGame/obj/Debug/netcoreapp3.1/SnakeGame.pdb
+/Users/laikokwui/dp1_Projects/snakegame-/SnakeGame/SnakeGame/obj/Debug/netcoreapp3.1/SnakeGame.genruntimeconfig.cache

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace SnakeGame
 {
@@ -6,103 +7,135 @@ namespace SnakeGame
     {
         static void Main(string[] args)
         {
+            byte left = 0;
+            byte right = 1;
+            byte up = 2;
+            byte down = 3;
+
+            GameBoard board = new GameBoard(79,24);
+            Food food = new Food(board);
+            Snake snake = new Snake(0);
+
+            Position[] directions = new Position[]
+            {
+                new Position(0,-1), // left
+                new Position(0,1), // right
+                new Position(-1,0), // up
+                new Position(1,0), // down
+            };
+
             // start game
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
-
-            // display this char on the console during the game
-            char ch = '*';
+            
             bool gameLive = true;
+
             ConsoleKeyInfo consoleKey; // holds whatever key is pressed
 
-            // location info & display
             int x = 0, y = 2; // y is 2 to allow the top row for directions & space
-            int dx = 1, dy = 0;
-            int consoleWidthLimit = 79;
-            int consoleHeightLimit = 24;
 
-            // clear to color
-            Console.BackgroundColor = ConsoleColor.DarkGray;
+            Console.BackgroundColor = ConsoleColor.DarkGray;  // clear to color
             Console.Clear();
 
-            // delay to slow down the character movement so you can see it
-            int delayInMillisecs = 50;
+            food.DrawFood(); 
+            snake.DrawSnake();
+            int direction = right;
 
-            // whether to keep trails
-            bool trail = false;
+            int delayInMillisecs = 100;  // delay to slow down the character movement so you can see it
 
-            do // until escape
+            do
             {
-                // print directions at top, then restore position
-                // save then restore current color
                 ConsoleColor cc = Console.ForegroundColor;
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.SetCursorPosition(0, 0);
-                Console.WriteLine("Arrows move up/down/right/left. Press 'esc' quit.");
-                Console.SetCursorPosition(x, y);
-                Console.ForegroundColor = cc;
 
-                // see if a key has been pressed
-                if (Console.KeyAvailable)
+                Console.WriteLine("Arrows move up/down/right/left. Press 'esc' quit.");
+                Console.WriteLine("Score: " + snake.Score);
+
+                Console.SetCursorPosition(x, y); 
+                Console.ForegroundColor = cc; // set color
+
+                if (Console.KeyAvailable) // check key input
                 {
-                    // get key and use it to set options
                     consoleKey = Console.ReadKey(true);
                     switch (consoleKey.Key)
                     {
-                      
-                        case ConsoleKey.UpArrow: //UP
-                            dx = 0;
-                            dy = -1;
-                            Console.ForegroundColor = ConsoleColor.Red;
+                        case ConsoleKey.UpArrow: // UP
+                            if (direction != down) direction = up;
                             break;
                         case ConsoleKey.DownArrow: // DOWN
-                            dx = 0;
-                            dy = 1;
-                            Console.ForegroundColor = ConsoleColor.Cyan;
+                            if (direction != up) direction = down;
                             break;
-                        case ConsoleKey.LeftArrow: //LEFT
-                            dx = -1;
-                            dy = 0;
-                            Console.ForegroundColor = ConsoleColor.Green;
+                        case ConsoleKey.LeftArrow: // LEFT
+                            if (direction != right) direction = left;
                             break;
-                        case ConsoleKey.RightArrow: //RIGHT
-                            dx = 1;
-                            dy = 0;
-                            Console.ForegroundColor = ConsoleColor.Black;
+                        case ConsoleKey.RightArrow: // RIGHT
+                            if (direction != left) direction = right;
                             break;
-                        case ConsoleKey.Escape: //END
-                            gameLive = false;
+                        case ConsoleKey.Escape: // END
+                            gameLive = false; // Game Over
                             break;
                     }
                 }
+                
+                Console.SetCursorPosition(x, y); // find the current position in the console grid
 
-                // find the current position in the console grid & erase the character there if don't want to see the trail
-                Console.SetCursorPosition(x, y);
-                if (trail == false)
-                    Console.Write(' ');
+                Position SnakeHead = snake.SnakeLength.Last();
+                Position NextDirection = directions[direction];
+                Position NewSnakeHead = new Position(SnakeHead.row + NextDirection.row, SnakeHead.column + NextDirection.column);
 
-                // calculate the new position
-                // note x set to 0 because we use the whole width, but y set to 1 because we use top row for instructions
-                x += dx;
-                if (x > consoleWidthLimit)
-                    x = 0;
-                if (x < 0)
-                    x = consoleWidthLimit;
+                snake.X += 1; // move horizontally
+                if (NewSnakeHead.column < 0)
+                {
+                    NewSnakeHead.column = 1; // set snake head position before end to avoid error
+                    gameLive = false; // Game Over
+                }
+                if (NewSnakeHead.row < 0)
+                {
+                    NewSnakeHead.row = 1; // set snake head position before end to avoid error
+                    gameLive = false; // Game Over
+                }
+                snake.Y += 1; // move vertically
+                if (NewSnakeHead.row >= board.Y) { gameLive = false; } // touch right edge
+                if (NewSnakeHead.column >= board.X) { gameLive = false; } // touch bottom edge
 
-                y += dy;
-                if (y > consoleHeightLimit)
-                    y = 2; // 2 due to top spaces used for directions
-                if (y < 2)
-                    y = consoleHeightLimit;
+                // draw the snake
+                Console.SetCursorPosition(SnakeHead.column, SnakeHead.row);
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.Write('*');
 
-                // write the character in the new position
-                Console.SetCursorPosition(x, y);
-                Console.Write(ch);
+                snake.SnakeLength.Enqueue(NewSnakeHead);
+                Console.SetCursorPosition(NewSnakeHead.column, NewSnakeHead.row);
+                Console.ForegroundColor = ConsoleColor.Gray;
 
-                // pause to allow eyeballs to keep up
-                System.Threading.Thread.Sleep(delayInMillisecs);
+                // snake head in different direction
+                if (direction == right) { Console.Write(">"); }
+                if (direction == left) { Console.Write("<"); }
+                if (direction == up) { Console.Write("^"); }
+                if (direction == down) { Console.Write("v"); }
+
+                // get the snake head by 
+                //Position last = snake.SnakeLength.Dequeue();
+                //Console.SetCursorPosition(last.column, last.row);
+                //Console.Write(' ');
+
+                // if snakehead hit the food
+                if (NewSnakeHead.column == food.X && NewSnakeHead.row == food.Y)
+                {
+                    snake.Score += 1; // add score
+                    food = new Food(board); // get new food position
+                    food.DrawFood(); // print out the food inn new position
+                }
+         
+                System.Threading.Thread.Sleep(delayInMillisecs); // delay
 
             } while (gameLive);
+
+            Console.Clear(); // clear the console screen
+            Console.ForegroundColor = ConsoleColor.Black; // text color black
+            Console.BackgroundColor = ConsoleColor.White; // background color white
+            Console.WriteLine("GAME OVER"); // game over message
+            Console.WriteLine("Total Score: " + snake.Score); // total score
         }
     }
 }
