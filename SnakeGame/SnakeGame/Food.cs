@@ -1,18 +1,33 @@
 ﻿using System;
-namespace SnakeGame
+using System.Collections.Generic;
+
+namespace Snake
 {
-    public class Food
+    class Food
     {
         public int X { get; set; }
         public int Y { get; set; }
 
-        public Food(GameBoard board)
+        public Food()
         {
             Random random = new Random();
-            this.X = random.Next(2, board.X - 2);
-            this.Y = random.Next(2, board.Y - 2);
+            this.X = random.Next(3, Console.WindowWidth - 3);
+            this.Y = random.Next(3, Console.WindowHeight - 3);
         }
 
+        // generate a new food location
+        public void CheckFoodCollision(List<Position> obs)
+        {
+            Random random = new Random();
+            // Check is it collapse the obstacle
+            while (obs.Contains(new Position(this.X, this.Y)))
+            {
+                this.X = random.Next(3, Console.WindowWidth - 3);
+                this.Y = random.Next(3, Console.WindowHeight - 3);
+            }
+        }
+
+        // Draw out the food
         public void DrawFood()
         {
             Console.SetCursorPosition(this.X, this.Y);

@@ -1,30 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace SnakeGame
+namespace Snake
 {
-    public class Snake
+    class Snake
     {
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int Score { get; set; }
-        public Queue<Position> SnakeLength { get; }
+        public Queue<Position> SnakeBody { get; set; }
 
-        public Snake(int score)
+        public Snake()
         {
-            this.X = 0;
-            this.Y = 0;
-            Score = score;
-            SnakeLength = new Queue<Position>();
+            SnakeBody = new Queue<Position>();
         }
 
+        //draw the snake
         public void DrawSnake()
         {
             for (int i = 0; i <= 3; i++)
             {
-                SnakeLength.Enqueue(new Position(0, i));
+                SnakeBody.Enqueue(new Position(i + 3, 2));
             }
+        }
+
+        //increase the length of the snake by 1
+        public void IncreaseSnakeBody()
+        {
+            Position temp = new Position(SnakeBody.Last().X + 1, SnakeBody.Last().Y);
+            SnakeBody.Enqueue(temp);
         }
     }
 }

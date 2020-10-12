@@ -60,3 +60,16 @@ C:/Users/Marlene/Desktop/DPT1/Sem 1 2020/Games for tutorial/SnakeGame/SnakeGame/
 /Users/laikokwui/dp1_Projects/snakegame-/SnakeGame/SnakeGame/obj/Debug/netcoreapp3.1/SnakeGame.dll
 /Users/laikokwui/dp1_Projects/snakegame-/SnakeGame/SnakeGame/obj/Debug/netcoreapp3.1/SnakeGame.pdb
 /Users/laikokwui/dp1_Projects/snakegame-/SnakeGame/SnakeGame/obj/Debug/netcoreapp3.1/SnakeGame.genruntimeconfig.cache
+C:\Users\User\Documents\dp1\snakegame-\SnakeGame\SnakeGame\bin\Debug\netcoreapp3.1\SnakeGame.exe
+C:\Users\User\Documents\dp1\snakegame-\SnakeGame\SnakeGame\bin\Debug\netcoreapp3.1\SnakeGame.deps.json
+C:\Users\User\Documents\dp1\snakegame-\SnakeGame\SnakeGame\bin\Debug\netcoreapp3.1\SnakeGame.runtimeconfig.json
+C:\Users\User\Documents\dp1\snakegame-\SnakeGame\SnakeGame\bin\Debug\netcoreapp3.1\SnakeGame.runtimeconfig.dev.json
+C:\Users\User\Documents\dp1\snakegame-\SnakeGame\SnakeGame\bin\Debug\netcoreapp3.1\SnakeGame.dll
+C:\Users\User\Documents\dp1\snakegame-\SnakeGame\SnakeGame\bin\Debug\netcoreapp3.1\SnakeGame.pdb
+C:\Users\User\Documents\dp1\snakegame-\SnakeGame\SnakeGame\obj\Debug\netcoreapp3.1\SnakeGame.csprojAssemblyReference.cache
+C:\Users\User\Documents\dp1\snakegame-\SnakeGame\SnakeGame\obj\Debug\netcoreapp3.1\SnakeGame.AssemblyInfoInputs.cache
+C:\Users\User\Documents\dp1\snakegame-\SnakeGame\SnakeGame\obj\Debug\netcoreapp3.1\SnakeGame.AssemblyInfo.cs
+C:\Users\User\Documents\dp1\snakegame-\SnakeGame\SnakeGame\obj\Debug\netcoreapp3.1\SnakeGame.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\dp1\snakegame-\SnakeGame\SnakeGame\obj\Debug\netcoreapp3.1\SnakeGame.dll
+C:\Users\User\Documents\dp1\snakegame-\SnakeGame\SnakeGame\obj\Debug\netcoreapp3.1\SnakeGame.pdb
+C:\Users\User\Documents\dp1\snakegame-\SnakeGame\SnakeGame\obj\Debug\netcoreapp3.1\SnakeGame.genruntimeconfig.cache

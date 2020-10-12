@@ -1,15 +1,14 @@
-﻿using System;
-namespace SnakeGame
+﻿namespace Snake
 {
-    public class Position
+    struct Position
     {
-        public int row { get; set; }
-        public int column { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
 
-        public Position(int row, int column)
+        public Position(int x, int y)
         {
-            this.row = row;
-            this.column = column;
+            this.X = x;
+            this.Y = y;
         }
     }
 }
