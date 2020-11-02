@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "3E/MJZpUgChaORP64xme/iq4CNFj21Vp6/6S2HdZKdrkmfWjytcewt/RF9vP1UeIvunA9ypOL3qPRrk2YomgFg==",
+  "dgSpecHash": "d3gF8KLpVTNajAo4dbgOe2NvhamLzGkRIHsIaSS7jHFMy2LbGnA0psjdAM6KuHATaXgu2ejT8E4W3oj6ImKbpw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\User\\Documents\\dp1\\snakegame-\\SnakeGame\\SnakeGame\\SnakeGame.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Asus\\Documents\\snakegame-\\SnakeGame\\SnakeGame\\SnakeGame.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Asus\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

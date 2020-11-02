@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using System.Media;
 
 namespace Snake
 {
@@ -110,9 +111,16 @@ namespace Snake
             snake.DrawSnake();
             int direction = right;
 
+            // Play background music
+            SoundPlayer bgm1 = new SoundPlayer();
+            bgm1.SoundLocation = "../../../music/bgm1.wav";
+            bgm1.PlayLooping();
+
             // looping
             while (true)
             {
+                
+
                 // check for key pressed
                 if (Console.KeyAvailable)
                 {
@@ -195,6 +203,11 @@ namespace Snake
                 // check for collision with the food
                 if (NewSnakeHead.X == food.X && NewSnakeHead.Y == food.Y)
                 {
+                    // Play background music
+                    SoundPlayer eat = new SoundPlayer();
+                    eat.SoundLocation = "../../../effect/eat.wav";
+                    eat.Play();
+                    
                     score += 1; // increase the score
                     snake.IncreaseSnakeBody(); // increasing the length of the snake
 
