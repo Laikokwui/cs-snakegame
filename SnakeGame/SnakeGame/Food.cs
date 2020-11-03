@@ -3,16 +3,26 @@ using System.Collections.Generic;
 
 namespace Snake
 {
+    enum FoodType
+    {
+        DEFAULT,
+        HEART,
+        STAR
+    }
+
     class Food
     {
         public int X { get; set; }
         public int Y { get; set; }
+        
+        public FoodType foodType { get; set; }
 
         public Food()
         {
             Random random = new Random();
             this.X = random.Next(3, Console.WindowWidth - 3);
             this.Y = random.Next(3, Console.WindowHeight - 3);
+            this.foodType = (FoodType)random.Next(0, 3);
         }
 
         // generate a new food location
@@ -31,8 +41,21 @@ namespace Snake
         public void DrawFood()
         {
             Console.SetCursorPosition(this.X, this.Y);
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.Write('@');
+            if (this.foodType == FoodType.DEFAULT)
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write('@');
+            }
+            if (this.foodType == FoodType.HEART)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write('&');
+            }
+            if (this.foodType == FoodType.STAR)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write('$');
+            }
         }
     }
 }
