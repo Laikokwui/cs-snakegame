@@ -93,3 +93,4 @@ C:\Users\Asus\Documents\snakegame-\SnakeGame\SnakeGame\obj\Debug\netcoreapp3.1\S
 C:\Users\Asus\Documents\snakegame-\SnakeGame\SnakeGame\obj\Debug\netcoreapp3.1\SnakeGame.dll
 C:\Users\Asus\Documents\snakegame-\SnakeGame\SnakeGame\obj\Debug\netcoreapp3.1\SnakeGame.pdb
 C:\Users\Asus\Documents\snakegame-\SnakeGame\SnakeGame\obj\Debug\netcoreapp3.1\SnakeGame.genruntimeconfig.cache
+C:\Users\Asus\Documents\snakegame-\SnakeGame\SnakeGame\obj\Debug\netcoreapp3.1\SnakeGame.csprojAssemblyReference.cache

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SnakeGame
 {
@@ -26,8 +27,6 @@ namespace SnakeGame
         {
             int row = 10;
             var path = "../../../textfile/leaderboard.txt";
-            Console.SetCursorPosition(Console.WindowWidth / 2 - 10, 3);
-            Console.WriteLine("Timer" + '\t' + '\t' + "Username" + " Score");
             using (StreamReader file = new StreamReader(path))
             {
                 string ln;
@@ -71,7 +70,7 @@ namespace SnakeGame
             if (Sorted.Count > 0)
             {
                 Sorted.Sort();
-                System.IO.File.WriteAllText(path, string.Empty);
+                File.WriteAllText(path, string.Empty);
                 StreamWriter sw = File.AppendText(path);
                 foreach (string user in Sorted)
                 {

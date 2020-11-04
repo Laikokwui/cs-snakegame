@@ -341,11 +341,12 @@ namespace Snake
 
                             SoundPlayer success = new SoundPlayer();
                             success.SoundLocation = "../../../effect/sucess.wav";
-                            success.PlaySync();
+                            success.Play();
 
                             leaderboard.AddUser(user);
-                            leaderboard.sortLeaderBoard();
+                            var x = leaderboard.getUsers;
                             leaderboard.StoreRecord();
+                            leaderboard.sortLeaderBoard();
 
                             ConsoleKeyInfo keyInfo = Console.ReadKey();
                             while (keyInfo.Key != ConsoleKey.Enter)
@@ -389,6 +390,8 @@ namespace Snake
                 if (option == 1)
                 {
                     Console.Clear();
+                    Console.SetCursorPosition(Console.WindowWidth / 2 - 10, 3);
+                    Console.WriteLine("Timer" + '\t' + '\t' + "Username" + " Score");
                     leaderboard.DisplayRecord();
                     Console.SetCursorPosition(Console.WindowWidth / 2 - 15, 0);
                     Console.ForegroundColor = ConsoleColor.Yellow;
