@@ -18,7 +18,6 @@ namespace Snake
 
             bool trail = false; // leave trail
             bool invincible = false; // invincible effect
-            bool backToMenu = false; 
             int invincibleTime = 0;
             int invincibleDeactivated = 0;
             int lastFoodTime = 0;
@@ -151,6 +150,7 @@ namespace Snake
 
                         while (true) // game loop
                         {
+                            bool backToMenu = false;
                             Gameboard(user, snake); // Draw the GameBoard
                             food.DrawFood(); // draw food
 
