@@ -191,11 +191,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Asus\\Documents\\snakegame-\\SnakeGame\\SnakeGame\\SnakeGame.csproj",
+      "projectUniqueName": "C:\\Users\\Asus\\Downloads\\SnakeGame\\SnakeGame\\SnakeGame.csproj",
       "projectName": "SnakeGame",
-      "projectPath": "C:\\Users\\Asus\\Documents\\snakegame-\\SnakeGame\\SnakeGame\\SnakeGame.csproj",
+      "projectPath": "C:\\Users\\Asus\\Downloads\\SnakeGame\\SnakeGame\\SnakeGame.csproj",
       "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Asus\\Documents\\snakegame-\\SnakeGame\\SnakeGame\\obj\\",
+      "outputPath": "C:\\Users\\Asus\\Downloads\\SnakeGame\\SnakeGame\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",

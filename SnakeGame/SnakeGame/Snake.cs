@@ -28,15 +28,5 @@ namespace Snake
             Position temp = new Position(SnakeBody.Last().X + 1, SnakeBody.Last().Y);
             SnakeBody.Enqueue(temp);
         }
-
-        public void AddLife(int life)
-        {
-            Life += life;
-        }
-
-        public void RemoveLife(int life)
-        {
-            Life -= life;
-        }
     }
 }

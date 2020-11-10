@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "d3gF8KLpVTNajAo4dbgOe2NvhamLzGkRIHsIaSS7jHFMy2LbGnA0psjdAM6KuHATaXgu2ejT8E4W3oj6ImKbpw==",
+  "dgSpecHash": "d3w8frJxjRbVwIZCYxnqKwkNX3Q+21RgE9WVm9M6A12uH02AD7YKqIoFLgqH7Xu2E3I5QESXZ9femC1grEtoRQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Asus\\Documents\\snakegame-\\SnakeGame\\SnakeGame\\SnakeGame.csproj",
+  "projectFilePath": "C:\\Users\\Asus\\Downloads\\SnakeGame\\SnakeGame\\SnakeGame.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",

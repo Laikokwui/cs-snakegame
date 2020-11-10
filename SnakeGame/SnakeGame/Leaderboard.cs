@@ -8,55 +8,58 @@ namespace SnakeGame
     class Leaderboard
     {
         private List<User> userlist;
-        private List<string> Sorted;
 
         public Leaderboard()
         {
             userlist = new List<User>();
-            Sorted = new List<string>();
         }
 
-        //add user to the list
+        // add user into record
         public void AddUser(User user)
         {
             userlist.Add(user);
         }
 
-        //display the ranking record from the text file when user clears the game
+        // display record
         public void DisplayRecord()
         {
-            int row = 10;
             var path = "../../../textfile/leaderboard.txt";
+            
             using (StreamReader file = new StreamReader(path))
             {
+                int row = 10;
+                int count = 1;
                 string ln;
+
                 while ((ln = file.ReadLine()) != null)
                 {
-                    if (row == 1)
-                    {
-                        break;
-                    }
-                    Console.SetCursorPosition(Console.WindowWidth / 2 - 10, Console.WindowHeight / 2 - row);
-                    Console.WriteLine(ln);
+                    if (row == -10) { break; }
+                    Console.SetCursorPosition(Console.WindowWidth / 2 - 12, Console.WindowHeight / 2 - row);
+                    Console.WriteLine(count.ToString() + ". " + ln);
+                    count++;
                     row--;
                 }
             }
         }
 
-        //add the user record into the text file
+        // add userlist record into the text file
         public void StoreRecord()
         {
             var path = "../../../textfile/leaderboard.txt";
-            StreamWriter sw = File.AppendText(path);
-            foreach (User user in userlist)
+
+            // before store record, sort by timer
+            IEnumerable<User> sorted_userlist = userlist.OrderBy(user => user.Time);
+
+            using (StreamWriter writer = new StreamWriter(path))
             {
-                sw.WriteLine(user.Time.ToString() + '\t' + user.Name + '\t' + user.Score.ToString());
+                foreach (User user in sorted_userlist)
+                {
+                    writer.WriteLine(user.Time.ToString() + '\t' + user.Name + '\t' + user.Score.ToString());
+                }
             }
-            sw.Close();
         }
 
-        //sort
-        public void sortLeaderBoard()
+        public void ImportRecord()
         {
             var path = "../../../textfile/leaderboard.txt";
             using (StreamReader file = new StreamReader(path))
@@ -64,25 +67,11 @@ namespace SnakeGame
                 string ln;
                 while ((ln = file.ReadLine()) != null)
                 {
-                    Sorted.Add(ln);
+                    string[] record = ln.Split('\t');
+                    User user = new User(record[1], int.Parse(record[2].Trim()), double.Parse(record[0]));
+                    AddUser(user);
                 }
             }
-            if (Sorted.Count > 0)
-            {
-                Sorted.Sort();
-                File.WriteAllText(path, string.Empty);
-                StreamWriter sw = File.AppendText(path);
-                foreach (string user in Sorted)
-                {
-                    sw.WriteLine(user);
-                }
-                sw.Close();
-            }
-        }
-
-        public List<User> getUsers
-        {
-            get { return userlist; }
         }
     }
 }

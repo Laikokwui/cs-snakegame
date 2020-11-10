@@ -16,10 +16,11 @@ namespace SnakeGame
             Score = 0;
         }
 
-        // increase the user score
-        public void AddScore(int score)
+        public User(string name, int score, double time)
         {
-            Score += score;
+            Name = name;
+            Score = score;
+            Time = time;
         }
     }
 }
