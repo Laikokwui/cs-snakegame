@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Snake
+namespace SnakeGame
 {
-    enum FoodType
+    public enum FoodType
     {
         DEFAULT,
         HEART,
         STAR
     }
 
-    class Food
+    public class Food
     {
         public int X { get; set; }
         public int Y { get; set; }
@@ -25,6 +25,14 @@ namespace Snake
             this.foodType = (FoodType)random.Next(0, 3);
         }
 
+        // for testing purposes as i need to import in random class and custom width and height
+        public Food(int width, int height, Random random)
+        {
+            this.X = random.Next(0, width);
+            this.Y = random.Next(0, height);
+            this.foodType = (FoodType)random.Next(0, 3);
+        }
+
         // generate a new food location
         public void CheckFoodCollision(List<Position> obs)
         {
@@ -34,6 +42,17 @@ namespace Snake
             {
                 this.X = random.Next(3, Console.WindowWidth - 3);
                 this.Y = random.Next(3, Console.WindowHeight - 3);
+            }
+        }
+
+        // for testing purposes as i need to import in random class and custom width and height
+        public void CheckFoodCollision(List<Position> obs, int width, int height, Random random)
+        {
+            // Check is it collapse the obstacle
+            while (obs.Contains(new Position(this.X, this.Y)))
+            {
+                this.X = random.Next(0, width);
+                this.Y = random.Next(0, height);
             }
         }
 

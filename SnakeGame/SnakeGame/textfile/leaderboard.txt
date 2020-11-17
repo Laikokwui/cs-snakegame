@@ -1,5 +1,7 @@
 39.64449	kokwui	5
+41.65198	kokwui	5
 57.58422	teohcs	5
+59.00947	kokwei	5
 120.26994	jj	10
 122.6126	adfgve	10
 214.84949	gaefaf	20

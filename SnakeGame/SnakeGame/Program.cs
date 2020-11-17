@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Media;
-using SnakeGame;
 using System.Diagnostics;
 
-namespace Snake
+namespace SnakeGame
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Leaderboard leaderboard = new Leaderboard();
             leaderboard.ImportRecord();
@@ -108,12 +107,7 @@ namespace Snake
 
                         List<Position> Obstacles = new List<Position>(); // create a list to store all the obstacles
 
-                        for (int i = 0; i < NumofObstacle; i++) // create obstacles with random coordinate
-                        {
-                            Obstacle obs = new Obstacle();
-                            while (Obstacles.Contains(new Position(obs.X, obs.Y))) { obs = new Obstacle(); } // create obstacle
-                            Obstacles.Add(new Position(obs.X, obs.Y));
-                        }
+                        Obstacles = GenerateObstacle(Obstacles, NumofObstacle); // generate obstacle
 
                         foreach (Position obstacle in Obstacles) // print out the obstacles
                         {
@@ -173,11 +167,22 @@ namespace Snake
                                     PausedMenu(user, ts, "You Paused the Game", "Paused Menu");
                                     stopwatch.Stop();
                                     bgm1.Stop();
-                                    while (Console.ReadKey().Key != ConsoleKey.Spacebar) {
-                                        if (Console.ReadKey().Key == ConsoleKey.Enter) {
-                                            backToMenu = true;
-                                            break;
+                                    while (true) {
+                                        if (Console.KeyAvailable)
+                                        {
+                                            ConsoleKeyInfo userInputs = Console.ReadKey();
+                                            if (userInputs.Key == ConsoleKey.Enter)
+                                            {
+                                                backToMenu = true;
+                                                break;
+                                            }
+                                            if (userInputs.Key == ConsoleKey.Spacebar)
+                                            {
+                                                backToMenu = false;
+                                                break;
+                                            }
                                         }
+                                        
                                     }
                                     if (backToMenu) { break; } // back to main menu
                                     Console.Clear();
@@ -205,7 +210,6 @@ namespace Snake
                                 {
                                     snake.Life--; // minus snake life
                                     GameState(user, snake); // Display updated score and life
-                                    Obstacles.Remove(SnakeHead); // destroy obstacle
                                 }
                                 else
                                 {
@@ -351,7 +355,7 @@ namespace Snake
             }
         }
 
-        static int MainMenu()
+        public static int MainMenu()
         {
             int count = 0; // default selection
             String[] Menu = { "Play", "LeaderBoard", "Quit" };
@@ -384,7 +388,7 @@ namespace Snake
             return count;
         }
 
-        static int DificultyPage()
+        public static int DificultyPage()
         {
             int count = 1; // default selection
             string[] Menu = { "Easy mode", "Normal mode", "Hard mode" };
@@ -413,7 +417,7 @@ namespace Snake
             return count;
         }
 
-        static void DisplayMenu(string[] Menu, int selection)
+        public static void DisplayMenu(string[] Menu, int selection)
         {
             Console.Clear();
             Console.SetCursorPosition(Console.WindowWidth / 2 - 11, Console.WindowHeight / 2 - 5);
@@ -435,7 +439,7 @@ namespace Snake
             }
         }
 
-        static void InstructionPage(int goal, int difficult)
+        public static void InstructionPage(int goal, int difficult)
         {
             Console.Clear(); // clear screen
 
@@ -470,7 +474,7 @@ namespace Snake
             Console.Clear(); // clear screen
         }
 
-        static void Gameboard(User user, Snake snake)
+        public static void Gameboard(User user, Snake snake)
         {
             Console.SetCursorPosition(0, 0);
             Console.ForegroundColor = ConsoleColor.White;
@@ -498,14 +502,14 @@ namespace Snake
             GameState(user, snake); // Draw the Score and life
         }
 
-        static void GameState(User user, Snake snake)
+        public static void GameState(User user, Snake snake)
         {
             Console.SetCursorPosition(2, 0);
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Username: " + user.Name + "\t" + "Score: " + user.Score + "\t" + "Life: " + snake.Life);
         }
 
-        static void GameOverMenu(User user, double ts, string outcome, string menutype)
+        public static void GameOverMenu(User user, double ts, string outcome, string menutype)
         {
             // Game over menu (winning)
             Console.SetCursorPosition(Console.WindowWidth / 2 - 8, Console.WindowHeight / 3);
@@ -524,7 +528,7 @@ namespace Snake
             Console.WriteLine("Press ENTER to back to Main Menu");
         }
 
-        static void PausedMenu(User user, double ts, string outcome, string menutype)
+        public static void PausedMenu(User user, double ts, string outcome, string menutype)
         {
             // Paused menu (winning)
             Console.SetCursorPosition(Console.WindowWidth / 2 - 8, Console.WindowHeight / 3);
@@ -544,7 +548,31 @@ namespace Snake
 
             // Press ENTER to back to Main Menu
             Console.SetCursorPosition(Console.WindowWidth / 2 - 16, Console.WindowHeight / 3 + 8);
-            Console.WriteLine("Press ENTER (Twice) to back to Main Menu");
+            Console.WriteLine("Press ENTER to go back to Main Menu");
+        }
+
+        // use for the maiin snakegame
+        public static List<Position> GenerateObstacle(List<Position> Obstacles, int NumofObstacle)
+        {
+            for (int i = 0; i < NumofObstacle; i++) // create obstacles with random coordinate
+            {
+                Obstacle obs = new Obstacle();
+                while (Obstacles.Contains(new Position(obs.X, obs.Y))) { obs = new Obstacle(); } // create obstacle
+                Obstacles.Add(new Position(obs.X, obs.Y));
+            }
+            return Obstacles;
+        }
+
+        // for testing purposes because i need to pass in the random class, custom width and height.
+        public static List<Position> GenerateObstacle(List<Position> Obstacles, int NumofObstacle, int width, int height, Random random)
+        {
+            for (int i = 0; i < NumofObstacle; i++) // create obstacles with random coordinate
+            {
+                Obstacle obs = new Obstacle(width, height, random);
+                while (Obstacles.Contains(new Position(obs.X, obs.Y))) { obs = new Obstacle(width, height, random); } // create obstacle
+                Obstacles.Add(new Position(obs.X, obs.Y));
+            }
+            return Obstacles;
         }
     }
 }

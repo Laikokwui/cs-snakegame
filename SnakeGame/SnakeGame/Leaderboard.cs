@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace SnakeGame
 {
-    class Leaderboard
+    public class Leaderboard
     {
         private List<User> userlist;
 
@@ -48,7 +48,7 @@ namespace SnakeGame
             var path = "../../../textfile/leaderboard.txt";
 
             // before store record, sort by timer
-            IEnumerable<User> sorted_userlist = userlist.OrderBy(user => user.Time);
+            IEnumerable<User> sorted_userlist = SortUser();
 
             using (StreamWriter writer = new StreamWriter(path))
             {
@@ -57,6 +57,11 @@ namespace SnakeGame
                     writer.WriteLine(user.Time.ToString() + '\t' + user.Name + '\t' + user.Score.ToString());
                 }
             }
+        }
+
+        public IEnumerable<User> SortUser()
+        {
+            return userlist.OrderBy(user => user.Time);
         }
 
         public void ImportRecord()

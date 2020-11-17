@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace SnakeGame
 {
-    class User
+    public class User
     {
         public string Name { get; set; }
         public int Score { get; set; }

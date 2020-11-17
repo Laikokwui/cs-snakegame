@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Snake
+namespace SnakeGame
 {
-    class Snake
+    public class Snake
     {
         public Queue<Position> SnakeBody { get; set; }
         public int Life { get; set; }
