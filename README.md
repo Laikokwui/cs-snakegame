@@ -13,3 +13,11 @@
 - add one food type (give snake lives) (yes snake have lives so can hit obstacle multiple time)
 
 - add one more food type (give snake invisible mode, can go through obstacle)
+
+## List of Snake Game Test
+
+- Test sorting Leaderboard
+
+- Test Overlaping of Food Generation with the Obstacle
+
+- Test the generation of obstacle. every round is different
